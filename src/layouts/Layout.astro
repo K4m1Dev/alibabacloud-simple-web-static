@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Hello Alibaba Cloud - Web Server Testing Page" />
+		<meta name="keywords" content="Alibaba Cloud, web server, testing, cloud computing" />
+		<meta name="author" content="Alibaba Cloud" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Hello Alibaba Cloud</title>
+		
+		<!-- Preload fonts for better performance -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	/* Reset y estilos base modernos */
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	html {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+		scroll-behavior: smooth;
+		line-height: 1.6;
+	}
+
+	body {
+		margin: 0;
+		width: 100%;
+		min-height: 100vh;
+		background: linear-gradient(135deg, #0f1419 0%, #1a202c 50%, #2d3748 100%);
+		color: #ffffff;
+		overflow-x: hidden;
+		position: relative;
+	}
+
+	/* Variables CSS para la paleta de colores de Alibaba */
+	:root {
+		--alibaba-orange: #FF6A00;
+		--alibaba-orange-light: #FF8533;
+		--alibaba-orange-dark: #E55A00;
+		--alibaba-blue: #1890FF;
+		--alibaba-blue-dark: #0050B3;
+		--alibaba-blue-light: #40A9FF;
+		--neutral-100: #F7FAFC;
+		--neutral-200: #EDF2F7;
+		--neutral-300: #E2E8F0;
+		--neutral-700: #4A5568;
+		--neutral-800: #2D3748;
+		--neutral-900: #1A202C;
+		--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+		--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	}
+
+	/* Fondo animado con gradiente */
+	body::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: 
+			radial-gradient(circle at 20% 50%, rgba(255, 106, 0, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, rgba(24, 144, 255, 0.1) 0%, transparent 50%),
+			radial-gradient(circle at 40% 80%, rgba(0, 80, 179, 0.1) 0%, transparent 50%);
+		animation: gradientShift 15s ease-in-out infinite;
+		z-index: -1;
+	}
+
+	@keyframes gradientShift {
+		0%, 100% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		50% {
+			opacity: 0.8;
+			transform: scale(1.1);
+		}
+	}
+
+	/* Animación de fade-in global */
+	.fade-in {
+		opacity: 0;
+		transform: translateY(30px);
+		animation: fadeInUp 1s ease-out forwards;
+	}
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Utilidades responsivas */
+	.container {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+
+	@media (min-width: 640px) {
+		.container {
+			padding: 0 2rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.container {
+			padding: 0 3rem;
+		}
+	}
+
+	/* Smooth scrolling y mejores transiciones */
+	* {
+		transition: all 0.3s ease;
+	}
+</style>
