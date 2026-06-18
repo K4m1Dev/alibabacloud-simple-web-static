@@ -8,7 +8,21 @@
 		<meta name="author" content="Alibaba Cloud" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="canonical" href="https://alibabacloud.com/" />
 		<title>Hello Alibaba Cloud</title>
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Hello Alibaba Cloud" />
+		<meta property="og:description" content="Web Server Testing Page - Optimizado para Alibaba Cloud" />
+		<meta property="og:url" content="https://alibabacloud.com/" />
+		<meta property="og:site_name" content="Alibaba Cloud" />
+		<meta property="og:locale" content="es_ES" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Hello Alibaba Cloud" />
+		<meta name="twitter:description" content="Web Server Testing Page - Optimizado para Alibaba Cloud" />
 		
 		<!-- Preload fonts for better performance -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +30,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 		<slot />
 	</body>
 </html>
@@ -125,8 +140,33 @@
 		}
 	}
 
-	/* Smooth scrolling y mejores transiciones */
-	* {
-		transition: all 0.3s ease;
+	/* Respetar preferencias de movimiento reducido (WCAG 2.3.3) */
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			scroll-behavior: auto !important;
+		}
+	}
+
+	/* Skip-to-content link (WCAG 2.4.1) */
+	.skip-link {
+		position: absolute;
+		top: -100%;
+		left: 1rem;
+		z-index: 10000;
+		padding: 0.75rem 1.5rem;
+		background: var(--alibaba-orange);
+		color: white;
+		font-weight: 600;
+		border-radius: 0 0 8px 8px;
+		text-decoration: none;
+	}
+
+	.skip-link:focus {
+		top: 0;
 	}
 </style>
